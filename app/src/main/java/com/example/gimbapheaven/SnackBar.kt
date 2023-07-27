@@ -37,5 +37,6 @@ class SnackBar : DisplayInfo() {
 
 
 
+        return Triple("유부 우동", 5.0, 1)
     }
 }
