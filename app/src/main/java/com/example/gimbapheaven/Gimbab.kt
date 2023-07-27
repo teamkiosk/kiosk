@@ -36,8 +36,7 @@ open class Gimbab() : DisplayInfo() {
                         )
                         when (readLine()?.toIntOrNull()) {
                             1 -> {
-                                println("${inputNumber.first}이 장바구니에 추가되었습니다.")
-                                println("${tripleList[idx].first}, ${tripleList[idx].second},${tripleList[idx].third}")
+                                println("${tripleList[idx].first}이 장바구니에 추가되었습니다.")
                                 return Triple(
                                     tripleList[idx].first,
                                     tripleList[idx].second,
