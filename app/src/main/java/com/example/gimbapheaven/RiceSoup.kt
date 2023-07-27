@@ -27,7 +27,20 @@ class RiceSoup : DisplayInfo() {
 
                 if (quantityInput != null && quantityInput > 0) {
                     val totalPrice = selectedMenu.second * quantityInput
-                    return selectedMenu.copy(second = totalPrice, third = quantityInput)
+                    val menuWithQuantity = selectedMenu.copy(second = totalPrice, third = quantityInput)
+
+                    // Ask if the user wants to add to the shopping cart
+                    print("장바구니에 추가하시겠습니까? (1. 예 / 2. 아니오): ")
+                    val addToCart = readLine()
+
+                    if (addToCart == "1") {
+                        println("메뉴가 장바구니에 추가되었습니다.")
+                        return menuWithQuantity
+                    } else if (addToCart == "2") {
+                        println("메뉴 추가를 취소합니다.")
+                    } else {
+                        println("잘못된 선택입니다. 다시 선택해주세요.")
+                    }
                 } else {
                     println("잘못된 수량입니다. 다시 선택해주세요.")
                 }
