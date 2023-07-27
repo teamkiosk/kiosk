@@ -3,10 +3,9 @@ package com.example.gimbapheaven
 import java.lang.Exception
 import kotlin.system.exitProcess
 
-open class Menu {
+class Menu {
     var totalOrder = mutableListOf<Triple<String, Double, Int>>()
     fun totalMenu() {
-        var orders = Orders()
         try {
             println(
                 "아래 메뉴판을 보시고 메뉴를 골라 번호를 입력해주세요." +
@@ -20,7 +19,6 @@ open class Menu {
             )
             inputMenu(readLine()!!.toInt())
             inputOrder()
-            orders.orders(totalOrder)
         } catch (e: Exception) {
         }
 
@@ -41,7 +39,7 @@ open class Menu {
                     }
 
                     3 -> {
-                        Meal().pickMenu()?.let { totalOrder.add(it) }
+                        totalOrder.add(Meal().pickMenu())
                         break
                     }
 
