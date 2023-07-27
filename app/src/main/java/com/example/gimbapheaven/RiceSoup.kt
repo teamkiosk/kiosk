@@ -1,3 +1,5 @@
+package com.example.gimbapheaven
+
 class RiceSoup : DisplayInfo() {
     override fun pickMenu(): Triple<String, Double, Int> {
         println("[ 국밥 메뉴 ]")
