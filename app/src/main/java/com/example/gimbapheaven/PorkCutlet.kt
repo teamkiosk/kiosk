@@ -2,9 +2,9 @@ package com.example.gimbapheaven
 
 class PorkCutlet : DisplayInfo() {
     private val menuList = listOf(
-        Triple("돈까스", 7.0, 7000),
-        Triple("치즈돈까스", 8.0, 8000),
-        Triple("고구마돈까스", 8.5, 8500)
+        Triple("돈까스    ", 7.0, 7000),
+        Triple("치즈돈까스  ", 8.0, 8000),
+        Triple("고구마돈까스 ", 8.5, 8500)
     )
 
     override fun pickMenu(): Triple<String, Double, Int> {
@@ -21,12 +21,16 @@ class PorkCutlet : DisplayInfo() {
         }
 
         val selectedMenu = menuList[menuInput - 1]
+        val (name, price) = selectedMenu
+
         return if (selectedMenu != null) {
             println("개수를 선택해주세요:")
             val quantityInput = readLine()!!.toInt()
             if (quantityInput > 0) {
-                val totalPrice = selectedMenu.third * quantityInput
-                Triple(selectedMenu.first, selectedMenu.second, totalPrice)
+                addToCart(name, price, quantityInput)
+                println("장바구니에 $name $quantityInput 개를 추가했습니다.")
+                return Triple(name, price, quantityInput)
+
             } else {
                 println("잘못된 개수를 선택했습니다.")
                 Triple("", 0.0, 0)
@@ -36,6 +40,9 @@ class PorkCutlet : DisplayInfo() {
             Triple("", 0.0, 0)
 
         }
+    }
+    private fun addToCart(name: String, price: Double, quantity: Int) {
+
     }
 }
 
