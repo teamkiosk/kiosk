@@ -18,7 +18,6 @@ class Orders : Menu() {
         println("주문한 금액: W $sum")
         println(" 1. 주문     2. 메뉴판")
         var num3: Int = readLine()!!.toInt()
-        var tmp3: Boolean = true
         when (num3) {
             1 -> {
                 if (pay>sum){
@@ -27,11 +26,9 @@ class Orders : Menu() {
                 if (pay<sum){
                     println("현재 잔액은 ${pay}W 으로 ${sum-pay}W이 부족 해서 주문할 수 없습니다.")
                 }
-                tmp3 = false
             }
             2 -> {
                 menu.totalMenu()
-                tmp3 = false
             }
             else -> {
                 println("입력한 값이 올바르지 않습니다. 다시 번호를 입력해주세요.")
