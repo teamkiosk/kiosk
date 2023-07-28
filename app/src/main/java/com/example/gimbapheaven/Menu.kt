@@ -3,7 +3,7 @@ package com.example.gimbapheaven
 import java.lang.Exception
 import kotlin.system.exitProcess
 
-class Menu {
+open class Menu {
     var totalOrder = mutableListOf<Triple<String, Double, Int>>()
     fun totalMenu() {
         while(true){
@@ -32,6 +32,7 @@ class Menu {
     fun inputMenu(menu: Int) {
         while (true) {
             try {
+                var order: Triple<String, Double, Int>
                 when (menu) {
                     1 -> {
                         totalOrder.add(Gimbab().pickMenu())
@@ -44,7 +45,8 @@ class Menu {
                     }
 
                     3 -> {
-                        totalOrder.add(Meal().pickMenu())
+                        order = Meal().pickMenu()!!
+                        totalOrder.add(Triple(order.first, order.second, order.third))
                         break
                     }
 
@@ -102,6 +104,8 @@ class Menu {
                 println("메뉴 : ${pair.first}  가격 : ${pair.second}00원  개수 : ${pair.third}")
             }
         }
+        var orders = Orders()
+        orders.orders(totalOrder)
     }
 }
 
